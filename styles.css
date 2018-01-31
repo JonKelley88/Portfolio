@@ -28,7 +28,6 @@ hr {
   align-items: center;
   text-align: center;
   color: white;
-  border-bottom: 6px solid white;
 }
 
 #home div h1 {
@@ -53,7 +52,8 @@ hr {
   flex-wrap: wrap;
   text-align: center;
   color: white;
-  border-bottom: 6px solid white;
+  justify-content: space-around;
+  padding: 0 15%;
 }
 
 #work div:nth-child(1) {
@@ -70,4 +70,170 @@ hr {
   margin: 0 auto;
 }
 
+.imgBox {
+  height: 350px;
+  width: 350px;
+  background-color: black;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+  justify-content: space-around;
+  align-content: space-around;
+  margin: 10px;
+}
+
+.imgBox h2 {
+  font-size: 2.5em;
+  z-index: 5;
+  flex-basis: 100%;
+  text-align: center;
+  font-family: "Hind Madurai";
+  font-weight: 100;
+  text-decoration: underline;
+}
+
+.imgBox p {
+  text-align: center;
+  color: white;
+  z-index: 5;
+  font-family: "Raleway";
+  font-size: 1.3em;
+  flex-basis: 70%;
+}
+
+.imgBox .button {
+  color: white;
+  font-family: "Raleway";
+  flex-basis: 35%;
+  font-size: 1.2em;
+  text-align: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.imgBox .button div {
+  padding: 5px 0;
+}
+
+.imgBox:nth-child(2) {
+  background-image: url("https://image.ibb.co/mOWahR/Rick_Rack_Roe.jpg");
+}
+
+.imgBox:nth-child(3) {
+  background-image: url("http://image.ibb.co/miy7Z6/Twitch_App.jpg");
+}
+
+.imgBox:nth-child(4) {
+  background-image: url("http://image.ibb.co/nEjCj6/SimonApp.jpg");
+}
+
+.black {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  opacity: 0.9;
+}
+
+.imgBox:hover .black {
+  animation: 0.2s blackSlide forwards ease-out;
+}
+
 /* ~~~ end of work ~~~ */
+
+/* ~~~ ABOUT ~~~ */
+
+#about {
+  flex-basis: 100vh;
+  background-color: #3b2945;
+  display: flex;
+  flex-wrap: wrap;
+  color: white;
+  padding: 0 15%;
+  border-bottom: 6px solid white;
+}
+
+#about div:nth-child(1) {
+  flex-basis: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#about div:nth-child(1) h3 {
+  font-size: 60px;
+  font-family: "Hind Madurai";
+  padding-top: 50px;
+  border-bottom: 6px solid white;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#about div:nth-child(2) {
+  flex-basis: 50%;
+}
+
+#about > div:nth-child(2) > img {
+  width: 400px;
+  height: 400px;
+  float: right;
+  margin-right: 30px;
+  border: 6px solid white;
+}
+
+#about div:nth-child(3) {
+  flex-basis: 50%;
+  height: 400px;
+  position: relative;
+}
+
+#about div:nth-child(3) p {
+  color: white;
+  font-family: "Raleway";
+  text-align: center;
+  width: 85%;
+  background-color: #594266;
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#about div:nth-child(4) {
+  flex-basis: 100%;
+}
+
+
+/* ~~~ end of about ~~~ */
+
+#logo {
+  background: linear-gradient(45deg, rgb(179, 41, 151), rgb(230, 182, 35));
+  height: 315px;
+  width: 315px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  fill: #3b2945;
+}
+
+/* ~~~ ANIMATIONS ~~~ */
+
+@keyframes  blackSlide {
+  100% {
+    top: 0;
+  }
+}
