@@ -4,11 +4,43 @@
   box-sizing: border-box;
 }
 
+body {
+  cursor: pointer;
+  overflow: hidden;
+}
+
 hr {
   height: 6px;
   border: 0;
-  background-color: white;
   margin-bottom: 6px;
+}
+
+svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  fill: #3b2945;
+}
+
+#arrow {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+#logo {
+  background: linear-gradient(45deg, rgb(179, 41, 151), rgb(230, 182, 35));
+  height: 315px;
+  width: 315px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  transform: translate(-50%, -50%);
 }
 
 #main {
@@ -16,6 +48,44 @@ hr {
   display: flex;
   flex-direction: column;
 }
+
+.fa-angle-double-down {
+
+}
+
+/* ~~~ NAV ~~~ */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 25px 25%;
+  position: absolute;
+}
+
+nav div {
+  background-size: 100% 0%;
+  transition: 0.5s ease;
+  background-repeat: no-repeat;
+}
+
+nav div p {
+  cursor: pointer;
+  width: 125px;
+  text-align: center;
+  font-family: "Raleway";
+  color: white;
+  padding: 5px 0;
+  font-size: 1.2em;
+  opacity: 0;
+  margin: 50px auto;
+}
+
+nav div:hover {
+  background-size: 100% 100%;
+}
+
+/* ~~~ end of nav ~~~ */
 
 /* ~~~ HOME ~~~ */
 
@@ -25,14 +95,24 @@ hr {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   text-align: center;
   color: white;
+}
+
+#home div {
+  margin-top: 200px;
+  opacity: 0;
+  align-self: center;
 }
 
 #home div h1 {
   font-size: 80px;
   font-family: "Hind Madurai";
+}
+
+#home div hr {
+  width: 0;
+  transform-origin: 50%;
 }
 
 #home div h3 {
@@ -207,33 +287,73 @@ hr {
   flex-basis: 100%;
 }
 
-
 /* ~~~ end of about ~~~ */
 
-#logo {
-  background: linear-gradient(45deg, rgb(179, 41, 151), rgb(230, 182, 35));
-  height: 315px;
-  width: 315px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: 0% 0%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
+/* ~~~ CONTACT ~~~ */
+
+#contact {
+  background-color: #1C1F29;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-svg {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  fill: #3b2945;
+#contact p {
+  flex-basis: 100%;
+  text-align: center;
 }
+
+#contact p a {
+  color: white;
+  font-family: "Raleway";
+  font-size: 1.25em;
+}
+
+/* ~~~ end of contact ~~~ */
 
 /* ~~~ ANIMATIONS ~~~ */
 
-@keyframes  blackSlide {
+@keyframes arrow-anim {
+  5% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    top: 95%;
+  }
+  50% {
+    opacity: 0;
+    top: 95%;
+  }
+  100% {
+    opacity: 0;
+    top: 95%;
+  }
+}
+
+@keyframes blackSlide {
   100% {
     top: 0;
+  }
+}
+
+@keyframes hrAnim {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes logoAnim {
+  100% {
+    transform: scale(0.33) translate(-50%, -50%);
+    top: 75px;
+  }
+}
+
+@keyframes slidefade {
+  100% {
+    margin: 0 auto;
+    opacity: 1;
   }
 }

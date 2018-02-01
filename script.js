@@ -92,7 +92,7 @@ $(document).ready(function(){
 
     $("#logo").css("background", string);
     $("hr").css("background", string);
-    $("#header>div>h2").css({
+    $("nav>div>p").css({
       "border-top": "2px solid",
       "border-image": `${string} 1`
     });
@@ -100,7 +100,7 @@ $(document).ready(function(){
       "border-top": "2px solid",
       "border-image": `${string} 1`
     });
-    $("#header>div").css("background-image", string);
+    $("nav>div").css("background-image", string);
     $(".button").css("background-image", string);
     $("#work").css({
       "border-top": "10px solid",
@@ -127,5 +127,22 @@ $(document).ready(function(){
     });
     $("#skills>div:nth-child(1)").css({"border-right": "6px solid", "border-image": `${string} 1`});
   }, 10);
+
+    // jQuery Triggers ------------------
+
+    $("body").click(function(){
+      $("body").css({ "cursor": "default", "overflow": "visible" });
+      $("#logo").css("animation", "logoAnim 1.5s forwards ease");
+      $("#home>div:nth-child(1)").css("animation", "slidefade 1s 1s forwards ease");
+      $("#home>div>hr").css("animation", "hrAnim 1s 1.25s forwards ease");
+      $("nav>div>p").css("animation", "slidefade 1s 1.5s forwards ease");
+      setTimeout(function(){
+        $("#arrow").css("animation", "arrow-anim 2s ease infinite");
+      }, 4000);
+    });
+
+    $(window).scroll(function(){
+      $("#arrow").fadeOut(500).css("animation", "none");
+    });
 
 }); // end of document.ready()
