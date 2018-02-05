@@ -96,7 +96,7 @@ $(document).ready(function(){
       "border-top": "2px solid",
       "border-image": `${string} 1`
     });
-    $(".button>div").css({
+    $(".button").css({
       "border-top": "2px solid",
       "border-image": `${string} 1`
     });
@@ -138,7 +138,7 @@ $(document).ready(function(){
       $("nav>div>p").css("animation", "slidefade 1s 1.5s forwards ease");
       setTimeout(function(){
         $("#arrow").css("animation", "arrow-anim 2s ease infinite");
-      }, 4000);
+      }, 3500);
     });
 
     $(window).scroll(function(){

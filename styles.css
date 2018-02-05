@@ -128,100 +128,116 @@ nav div:hover {
 #work {
   flex-basis: 100vh;
   background-color: #594266;
+}
+
+#work div {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  color: white;
-  justify-content: space-around;
-  padding: 0 15%;
-}
-
-#work div:nth-child(1) {
-  align-self: flex-start;
-  flex-basis: 100%;
-}
-
-#work div h3 {
-  font-size: 60px;
-  font-family: "Hind Madurai";
-  padding-top: 50px;
-  border-bottom: 6px solid white;
-  width: 300px;
+  width: 70%;
   margin: 0 auto;
 }
 
-.imgBox {
-  height: 350px;
-  width: 350px;
-  background-color: black;
+#work div div {
+  flex-basis: 50%;
+}
+
+.img-box {
+  height: 300px;
+  min-width: 500px;
   background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
   position: relative;
   overflow: hidden;
-  justify-content: space-around;
+  display: flex;
+  margin: 0 auto;
   align-content: space-around;
-  margin: 10px;
 }
 
-.imgBox h2 {
-  font-size: 2.5em;
-  z-index: 5;
-  flex-basis: 100%;
-  text-align: center;
-  font-family: "Hind Madurai";
-  font-weight: 100;
-  text-decoration: underline;
+#Rick {
+  background-image: url("https://image.ibb.co/nmd48x/rickandmorty.jpg");
 }
 
-.imgBox p {
-  text-align: center;
-  color: white;
-  z-index: 5;
-  font-family: "Raleway";
-  font-size: 1.3em;
-  flex-basis: 70%;
+#Twitch {
+  background-image: url("https://image.ibb.co/niELyx/twitch.jpg");
 }
 
-.imgBox .button {
-  color: white;
-  font-family: "Raleway";
-  flex-basis: 35%;
-  font-size: 1.2em;
-  text-align: center;
-  cursor: pointer;
-  z-index: 5;
+#Simon {
+  background-image: url("https://image.ibb.co/jX8DJx/simon.jpg");
 }
 
-.imgBox .button div {
-  padding: 5px 0;
-}
-
-.imgBox:nth-child(2) {
-  background-image: url("https://image.ibb.co/mOWahR/Rick_Rack_Roe.jpg");
-}
-
-.imgBox:nth-child(3) {
-  background-image: url("http://image.ibb.co/miy7Z6/Twitch_App.jpg");
-}
-
-.imgBox:nth-child(4) {
-  background-image: url("http://image.ibb.co/nEjCj6/SimonApp.jpg");
+#Pomo {
+  background-image: url("https://image.ibb.co/cNcMox/pomodoro.jpg");
 }
 
 .black {
-  width: 100%;
+  position: absolute;
+  min-width: 500px;
   height: 100%;
   background-color: black;
-  position: absolute;
   top: 100%;
-  left: 0;
-  display: block;
-  opacity: 0.9;
+  opacity: .9;
 }
 
-.imgBox:hover .black {
-  animation: 0.2s blackSlide forwards ease-out;
+.img-box h2 {
+  color: white;
+  font-size: 2em;
+  flex-basis: 100%;
+  text-align: center;
+  font-family: "Raleway";
+  text-decoration: underline;
+  z-index: 5;
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+.img-box p {
+  text-align: center;
+  color: white;
+  font-family: "Raleway";
+  flex-basis: 70%;
+  z-index: 5;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.img-box:hover .black {
+  animation: black-slide .2s forwards ease-out;
+}
+
+.button {
+  color: white;
+  font-family: "Raleway";
+  flex-basis: 50%;
+  cursor: pointer;
+  background-size: 100% 0%;
+  transition: background-size 0.5s ease;
+  background-repeat: no-repeat;
+  z-index: 5;
+  max-width: 160px;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.button:hover {
+  background-size: 100% 100%;
+}
+
+.button p {
+  padding: 5px 0;
+  width: 100%;
+}
+
+.img-box:hover h2 {
+  animation: 0.2s 0.3s text-anim forwards ease-out;
+}
+
+.img-box:hover p {
+  animation: 0.2s 0.5s text-anim forwards ease-out;
+}
+
+.img-box:hover .button {
+  animation: 0.2s 0.7s text-anim forwards ease-out;
 }
 
 /* ~~~ end of work ~~~ */
@@ -332,7 +348,7 @@ nav div:hover {
   }
 }
 
-@keyframes blackSlide {
+@keyframes black-slide {
   100% {
     top: 0;
   }
@@ -355,5 +371,12 @@ nav div:hover {
   100% {
     margin: 0 auto;
     opacity: 1;
+  }
+}
+
+@keyframes text-anim {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
