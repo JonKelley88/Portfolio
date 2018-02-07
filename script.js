@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  $(document).scrollTop(0);
+
   // Globals ------------------
 
   const colors = [
@@ -107,7 +109,7 @@ $(document).ready(function(){
       "border-bottom": "10px solid",
       "border-image": `${string} 1`
     });
-    $("#work>div>h3").css({
+    $("#workTitle>h3").css({
       "border-bottom": "6px solid",
       "border-image": `${string} 1`
     });
@@ -135,7 +137,7 @@ $(document).ready(function(){
       $("#logo").css("animation", "logoAnim 1.5s forwards ease");
       $("#home>div:nth-child(1)").css("animation", "slidefade 1s 1s forwards ease");
       $("#home>div>hr").css("animation", "hrAnim 1s 1.25s forwards ease");
-      $("nav>div>p").css("animation", "slidefade 1s 1.5s forwards ease");
+      $("nav>div").css("animation", "slidefade 1s 1.5s forwards ease");
       setTimeout(function(){
         $("#arrow").css("animation", "arrow-anim 2s ease infinite");
       }, 3500);
