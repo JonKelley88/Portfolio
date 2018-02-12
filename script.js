@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $(document).scrollTop(0);
+  skillsAnim();
 
   // Globals ------------------
 
@@ -16,8 +17,24 @@ $(document).ready(function(){
   ];
   let leftRGB, rightRGB, leftDiff, rightDiff;
   let counter = 0;
+  let images = $(".img-box").toArray();
 
   // Functions ------------------
+
+  function galleryAnim(){
+    $(images).each(function(index){
+      let galleryTimer = index * 250;
+      setTimeout(function(){
+        $(images[index]).animate({"opacity": "1"}, 1000);
+      }, galleryTimer);
+    });
+  }
+
+  function skillsAnim(){
+    for(i = 0; i > 3; setTimeout(function(){i++}), 3000){
+      $(`#skills>#left>div:nth-child(${i + 1})`).css("background-size", "100% 100%");
+    }
+  }
 
   function setColors(left, right) {
     let RGBString = $("#logo")
@@ -94,7 +111,7 @@ $(document).ready(function(){
 
     $("#logo").css("background", string);
     $("hr").css("background", string);
-    $("nav>div>p").css({
+    $("nav>div>a>p").css({
       "border-top": "2px solid",
       "border-image": `${string} 1`
     });
@@ -128,6 +145,7 @@ $(document).ready(function(){
       "border-image": `${string} 1`
     });
     $("#skills>div:nth-child(1)").css({"border-right": "6px solid", "border-image": `${string} 1`});
+    $("#skills>#left>div").css("background-image", string);
   }, 10);
 
     // jQuery Triggers ------------------
@@ -145,6 +163,38 @@ $(document).ready(function(){
 
     $(window).scroll(function(){
       $("#arrow").fadeOut(500).css("animation", "none");
+    });
+
+    $("#skills>#left>div").on("mouseenter", function(){
+      let skillsIndex = $(this).index();
+
+      switch(skillsIndex) {
+        case 0:
+            $("#skills>#right").html("<div><p>Bootstrap</p></div><div><p>Responsive Design</p></div><div><p>Flexbox</p></div><div><p>SVG</p></div>");
+            break;
+        case 1:
+            $("#skills>#right").html("<div><p>jQuery</p></div><div><p>ES2015+</p></div><div><p>React</p></div><div><p>node.js</p></div><div><p>D3</p></div>");
+            break;
+        case 2:
+            $("#skills>#right").html("<div><p>Photo Editing</p></div><div><p>Vector Graphics</p></div><div><p>UI Design</p></div>");
+            break;
+        case 3:
+            $("#skills>#right").html("<div><p>Object Oriented Programming</p></div><div><p>Agile Methodology</p></div><div><p>Debugging</p></div>");
+      }
+    });
+
+    $(window).scroll(function(){
+      let height = $(window).height();
+      let bottom =  $(document).scrollTop() + height;
+      let workTop = $("#work").offset().top;
+
+      if(bottom >= workTop + (height / 4)){
+        $("#workTitle>h3").animate({"opacity":"1"}, 1000);
+      }
+
+      if(bottom >= workTop + (height / 2)){
+        galleryAnim();
+      }
     });
 
 }); // end of document.ready()

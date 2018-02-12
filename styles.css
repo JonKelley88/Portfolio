@@ -77,6 +77,10 @@ nav div p {
   font-size: 1.2em;
 }
 
+nav div a {
+  text-decoration: none;
+}
+
 
 nav div:hover {
   background-size: 100% 100%;
@@ -124,7 +128,7 @@ nav div:hover {
 
 #work {
   flex-basis: 100vh;
-  background-color: #594266;
+  background-color: #3b2945;
 }
 
 #work div {
@@ -135,22 +139,28 @@ nav div:hover {
   margin: 0 auto;
 }
 
+#workCont {
+  height: 100%;
+  background-color: #594266;
+}
+
 #work div div {
   flex-basis: 50%;
-  margin-bottom: 30px;
 }
 
 #work div #workTitle {
   flex-basis: 100%;
+  height: 0;
+  margin: 50px auto;
 }
 
 #workTitle h3 {
   font-size: 60px;
   font-family: "Hind Madurai";
-  padding-top: 50px;
   width: 300px;
   margin: 0 auto;
   color: white;
+  opacity: 0;
 }
 
 .img-box {
@@ -160,8 +170,8 @@ nav div:hover {
   position: relative;
   overflow: hidden;
   display: flex;
-  margin: 0 auto;
   align-content: space-around;
+  opacity: 0;
 }
 
 #Rick {
@@ -186,7 +196,7 @@ nav div:hover {
   height: 100%;
   background-color: black;
   top: 100%;
-  opacity: .9;
+  opacity: .85;
 }
 
 .img-box h2 {
@@ -210,6 +220,10 @@ nav div:hover {
   margin: 0 auto;
   opacity: 0;
   transform: translateY(-30px);
+}
+
+.img-box:nth-child(2) {
+  margin-bottom: 0px;
 }
 
 .img-box:hover .black {
@@ -266,13 +280,13 @@ nav div:hover {
   justify-content: space-around;
 }
 
-#about div:nth-child(1) {
+#about #aboutTitle {
   flex-basis: 100%;
   text-align: center;
   margin-bottom: 50px;
 }
 
-#about div:nth-child(1) h3 {
+#about #aboutTitle h3 {
   font-size: 60px;
   font-family: "Hind Madurai";
   padding-top: 50px;
@@ -281,11 +295,11 @@ nav div:hover {
   margin: 0 auto;
 }
 
-#about div:nth-child(2) {
+#about #aboutPic {
   flex-basis: 50%;
 }
 
-#about > div:nth-child(2) > img {
+#about > #aboutPic > img {
   width: 400px;
   height: 400px;
   float: right;
@@ -293,13 +307,13 @@ nav div:hover {
   border: 6px solid white;
 }
 
-#about div:nth-child(3) {
+#about #aboutText {
   flex-basis: 50%;
   height: 400px;
   position: relative;
 }
 
-#about div:nth-child(3) p {
+#about #aboutText p {
   color: white;
   font-family: "Raleway";
   text-align: center;
@@ -311,7 +325,7 @@ nav div:hover {
   transform: translateY(-50%);
 }
 
-#about div:nth-child(4) {
+#about #skillsCont {
   flex-basis: 100%;
 }
 
@@ -332,17 +346,34 @@ nav div:hover {
   text-align: center;
 }
 
-#skills div:nth-child(1) {
+#skills #left {
   float: left;
 }
 
-#skills div:nth-child(2) {
+#skills #right {
   float: right;
 }
 
-#skills div p {
+#skills #left div {
+  height: 100%;
+  width: 100%;
+  background-size: 0% 100%;
+  transition: 0.5s ease;
+  background-repeat: no-repeat;
+}
+
+#skills #left div:hover {
+  background-size: 100% 100%;
+}
+
+#left div p {
   font-family: "Raleway";
   font-size: 1.25em;
+}
+
+#right div p {
+  font-family: "Raleway";
+  font-size: 1em;
 }
 
 
