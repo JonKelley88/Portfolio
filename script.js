@@ -18,6 +18,7 @@ $(document).ready(function(){
   let leftRGB, rightRGB, leftDiff, rightDiff;
   let counter = 0;
   let images = $(".img-box").toArray();
+  let aboutElements = $("#about>div").toArray();
 
   // Functions ------------------
 
@@ -26,6 +27,16 @@ $(document).ready(function(){
       let galleryTimer = index * 250;
       setTimeout(function(){
         $(images[index]).animate({"opacity": "1"}, 1000);
+      }, galleryTimer);
+    });
+  }
+
+  // Need constructor function!!
+  function aboutAnim(){
+    $(aboutElements).each(function(index){
+      let galleryTimer = index * 250;
+      setTimeout(function(){
+        $(aboutElements[index]).animate({"opacity": "1"}, 1000);
       }, galleryTimer);
     });
   }
@@ -187,6 +198,7 @@ $(document).ready(function(){
       let height = $(window).height();
       let bottom =  $(document).scrollTop() + height;
       let workTop = $("#work").offset().top;
+      let aboutTop = $("#about").offset().top;
 
       if(bottom >= workTop + (height / 4)){
         $("#workTitle>h3").animate({"opacity":"1"}, 1000);
@@ -194,6 +206,10 @@ $(document).ready(function(){
 
       if(bottom >= workTop + (height / 2)){
         galleryAnim();
+      }
+
+      if(bottom >= aboutTop + (height / 3)){
+        aboutAnim();
       }
     });
 

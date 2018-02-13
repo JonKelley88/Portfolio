@@ -248,9 +248,13 @@ nav div:hover {
   background-size: 100% 100%;
 }
 
-.button p {
+.button a {
   padding: 5px 0;
   width: 100%;
+}
+
+.button a:link {
+  text-decoration: none;
 }
 
 .img-box:hover h2 {
@@ -278,6 +282,10 @@ nav div:hover {
   padding: 0 15%;
   border-bottom: 6px solid white;
   justify-content: space-around;
+}
+
+#about>div {
+  opacity: 0;
 }
 
 #about #aboutTitle {
@@ -385,6 +393,7 @@ nav div:hover {
   background-color: #1C1F29;
   height: 30vh;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -398,6 +407,10 @@ nav div:hover {
   color: white;
   font-family: "Raleway";
   font-size: 1.25em;
+}
+
+#contactBox {
+  color: white;
 }
 
 /* ~~~ end of contact ~~~ */
