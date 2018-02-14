@@ -370,10 +370,6 @@ nav div:hover {
   background-repeat: no-repeat;
 }
 
-#skills #left div:hover {
-  background-size: 100% 100%;
-}
-
 #left div p {
   font-family: "Raleway";
   font-size: 1.25em;

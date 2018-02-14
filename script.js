@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
   $(document).scrollTop(0);
-  skillsAnim();
 
   // Globals ------------------
 
@@ -15,10 +14,11 @@ $(document).ready(function(){
     [179, 41, 151],
     [230, 182, 35]
   ];
-  let leftRGB, rightRGB, leftDiff, rightDiff;
+  let leftRGB, rightRGB, leftDiff, rightDiff, skillsIndex;
   let counter = 0;
   let images = $(".img-box").toArray();
   let aboutElements = $("#about>div").toArray();
+  let triggeredOnce = false;
 
   // Functions ------------------
 
@@ -42,9 +42,19 @@ $(document).ready(function(){
   }
 
   function skillsAnim(){
-    for(i = 0; i > 3; setTimeout(function(){i++}), 3000){
-      $(`#skills>#left>div:nth-child(${i + 1})`).css("background-size", "100% 100%");
-    }
+    let skills = $("#skills>#left>div");
+    let skillsCounter = -1;
+
+    let skillsTimer = setInterval(function(){
+      if(skillsCounter === skills.length - 1){
+        skillsCounter = 0;
+      } else {
+        skillsCounter++;
+      }
+      $("#skills>#left>div").css("background-size", "0% 100%");
+      $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).css("background-size", "100% 100%");
+      $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).trigger("mouseenter");
+    }, 4000);
   }
 
   function setColors(left, right) {
@@ -176,8 +186,15 @@ $(document).ready(function(){
       $("#arrow").fadeOut(500).css("animation", "none");
     });
 
-    $("#skills>#left>div").on("mouseenter", function(){
-      let skillsIndex = $(this).index();
+    $("#skills>#left>div").hover(function(){
+      skillsIndex = $(this).index();
+
+      $(`#skills>#left>div:nth-child(${skillsIndex + 1})`).css("background-size", "100% 100%");
+
+      /* THOUGHT - Put the html for each skill into an Object.
+                    Separate each div of the subskills to make
+                    the elements of the object. From there you
+                    can animate it.*/
 
       switch(skillsIndex) {
         case 0:
@@ -191,7 +208,10 @@ $(document).ready(function(){
             break;
         case 3:
             $("#skills>#right").html("<div><p>Object Oriented Programming</p></div><div><p>Agile Methodology</p></div><div><p>Debugging</p></div>");
+            break;
       }
+    }, function(){
+      $("#skills>#left>div").css("background-size", "0% 100%");
     });
 
     $(window).scroll(function(){
@@ -209,7 +229,11 @@ $(document).ready(function(){
       }
 
       if(bottom >= aboutTop + (height / 3)){
-        aboutAnim();
+        if(triggeredOnce === false){
+          aboutAnim();
+          skillsAnim();
+          triggeredOnce = true;
+        }
       }
     });
 
