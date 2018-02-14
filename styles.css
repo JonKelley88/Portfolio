@@ -387,26 +387,39 @@ nav div:hover {
 
 #contact {
   background-color: #1C1F29;
-  height: 30vh;
+  min-height: 100px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 #contact p {
-  flex-basis: 100%;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #contact p a {
   color: white;
   font-family: "Raleway";
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 #contactBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#contactBox a {
+  margin: 20px;
+  color: #594266;
+}
+
+#contactBox a:hover {
   color: white;
+  cursor: pointer;
 }
 
 /* ~~~ end of contact ~~~ */
