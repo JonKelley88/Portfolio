@@ -19,6 +19,7 @@ $(document).ready(function(){
   let images = $(".img-box").toArray();
   let aboutElements = $("#about>div").toArray();
   let triggeredOnce = false;
+  let skillsHover = false;
 
   // Functions ------------------
 
@@ -51,9 +52,14 @@ $(document).ready(function(){
       } else {
         skillsCounter++;
       }
-      $("#skills>#left>div").css("background-size", "0% 100%");
-      $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).css("background-size", "100% 100%");
-      $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).trigger("mouseenter");
+      if(skillsHover === false){
+        $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).css("background-size", "100% 100%");
+        $(`#skills>#left>div:nth-child(${skillsCounter + 1})`).trigger("mouseenter");
+        skillsHover = false;
+        console.log(skillsHover);
+      } else {
+        skillsCounter = skillsIndex;
+      }
     }, 4000);
   }
 
@@ -186,9 +192,16 @@ $(document).ready(function(){
       $("#arrow").fadeOut(500).css("animation", "none");
     });
 
+    $("#skills>#left").hover(function(){
+      skillsHover = true;
+    }, function(){
+      setTimeout(function(){skillsHover = false;}, 1000);
+      $("#skills>#right").empty();
+    });
+
     $("#skills>#left>div").hover(function(){
       skillsIndex = $(this).index();
-
+      $("#skills>#left>div").css("background-size", "0% 100%");
       $(`#skills>#left>div:nth-child(${skillsIndex + 1})`).css("background-size", "100% 100%");
 
       /* THOUGHT - Put the html for each skill into an Object.
