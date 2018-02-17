@@ -127,8 +127,9 @@ nav div:hover {
 /* ~~~ WORK ~~~ */
 
 #work {
-  flex-basis: 100vh;
+  flex-basis: auto;
   background-color: #3b2945;
+  min-height: 100vh;
 }
 
 #work div {
