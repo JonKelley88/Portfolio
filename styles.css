@@ -44,7 +44,6 @@ svg {
 }
 
 #main {
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -53,36 +52,37 @@ svg {
 
 nav {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
   width: 100%;
-  padding: 25px 25%;
   position: absolute;
+  margin: 0 auto;
+  padding: 25px 17%;
 }
 
-nav div {
+nav>div {
+  opacity: 0;
+  flex-basis: 25%;
+}
+
+nav>div>div {
   background-size: 100% 0%;
   transition: 0.5s ease;
   background-repeat: no-repeat;
-  opacity: 0;
-  margin-top: 50px;
-}
-
-nav div p {
-  cursor: pointer;
   width: 125px;
-  text-align: center;
-  font-family: "Raleway";
-  color: white;
-  padding: 5px 0;
-  font-size: 1.2em;
+  margin: 0 auto;
 }
 
-nav div a {
+nav>div>div>a {
   text-decoration: none;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Raleway";
+  font-size: 1.2em;
+  padding: 5px 0;
 }
 
-
-nav div:hover {
+nav>div>div:hover {
   background-size: 100% 100%;
 }
 
@@ -127,48 +127,52 @@ nav div:hover {
 /* ~~~ WORK ~~~ */
 
 #work {
-  flex-basis: auto;
+  flex-basis: 100vh;
   background-color: #3b2945;
-  min-height: 100vh;
 }
 
-#work div {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  margin: 0 auto;
-}
-
-#workCont {
-  min-height: 100%;
+#workContainer {
   background-color: #594266;
   width: 70%;
-}
-
-#work div div {
-  flex-basis: 50%;
-}
-
-#work div #workTitle {
-  flex-basis: 100%;
-  height: 0;
-  margin: 50px auto;
-}
-
-#workTitle h3 {
-  font-size: 60px;
-  font-family: "Hind Madurai";
-  width: 300px;
+  height: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Work Title */
+
+#workContainer>div:nth-child(1) {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#workContainer>div:nth-child(2) {
+  flex-basis: 85%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#workContainer>div:nth-child(2)>div {
+  flex-basis: 50%;
+  align-self: stretch;
+}
+
+#workContainer>div:nth-child(1)>h3 {
+  font-family: "Hind Madurai";
   color: white;
-  opacity: 0;
+  font-size: 3em;
+  width: 300px;
 }
 
 .img-box {
   height: 300px;
-  min-width: 500px;
+  width: 500px;
+  margin: 0 auto;
   background-size: cover;
-  position: relative;
   overflow: hidden;
   display: flex;
   align-content: space-around;
@@ -191,85 +195,6 @@ nav div:hover {
   background-image: url("https://image.ibb.co/cNcMox/pomodoro.jpg");
 }
 
-.black {
-  position: absolute;
-  min-width: 500px;
-  height: 100%;
-  background-color: black;
-  top: 100%;
-  opacity: .85;
-}
-
-.img-box h2 {
-  color: white;
-  font-size: 2em;
-  flex-basis: 100%;
-  text-align: center;
-  font-family: "Raleway";
-  text-decoration: underline;
-  z-index: 5;
-  transform: translateY(-30px);
-  opacity: 0;
-}
-
-.img-box p {
-  text-align: center;
-  color: white;
-  font-family: "Raleway";
-  flex-basis: 70%;
-  z-index: 5;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-.img-box:nth-child(2) {
-  margin-bottom: 0px;
-}
-
-.img-box:hover .black {
-  animation: black-slide .2s forwards ease-out;
-}
-
-.button {
-  color: white;
-  font-family: "Raleway";
-  flex-basis: 50%;
-  cursor: pointer;
-  background-size: 100% 0%;
-  transition: background-size 0.5s ease;
-  background-repeat: no-repeat;
-  z-index: 5;
-  max-width: 160px;
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-.button:hover {
-  background-size: 100% 100%;
-}
-
-.button a {
-  padding: 5px 0;
-  width: 100%;
-}
-
-.button a:link {
-  text-decoration: none;
-}
-
-.img-box:hover h2 {
-  animation: 0.2s 0.3s text-anim forwards ease-out;
-}
-
-.img-box:hover p {
-  animation: 0.2s 0.5s text-anim forwards ease-out;
-}
-
-.img-box:hover .button {
-  animation: 0.2s 0.7s text-anim forwards ease-out;
-}
-
 /* ~~~ end of work ~~~ */
 
 /* ~~~ ABOUT ~~~ */
@@ -277,68 +202,76 @@ nav div:hover {
 #about {
   flex-basis: 100vh;
   background-color: #3b2945;
+}
+
+#aboutContainer {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#aboutContainer>div:nth-child(1) {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutContainer>div:nth-child(1)>h3 {
+  font-family: "Hind Madurai";
+  color: white;
+  font-size: 3em;
+  width: 300px;
+}
+
+#aboutContainer>div:nth-child(2) {
+  flex-basis: 85%;
   display: flex;
   flex-wrap: wrap;
-  color: white;
-  padding: 0 15%;
-  border-bottom: 6px solid white;
-  justify-content: space-around;
+  align-items: space-around;
 }
 
-#about>div {
-  opacity: 0;
-}
-
-#about #aboutTitle {
-  flex-basis: 100%;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-#about #aboutTitle h3 {
-  font-size: 60px;
-  font-family: "Hind Madurai";
-  padding-top: 50px;
-  border-bottom: 6px solid white;
-  width: 300px;
-  margin: 0 auto;
-}
-
-#about #aboutPic {
-  flex-basis: 50%;
-}
-
-#about > #aboutPic > img {
-  width: 400px;
-  height: 400px;
-  float: right;
-  margin-right: 30px;
-  border: 6px solid white;
-}
-
-#about #aboutText {
-  flex-basis: 50%;
-  height: 400px;
+#aboutContainer>div:nth-child(2)>div:nth-child(1) {
   position: relative;
 }
 
-#about #aboutText p {
-  color: white;
-  font-family: "Raleway";
-  text-align: center;
-  width: 85%;
-  background-color: #594266;
-  padding: 25px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+#aboutContainer>div:nth-child(2)>div:nth-child(1), #aboutContainer>div:nth-child(2)>div:nth-child(2) {
+  flex-basis: 50%;
 }
 
-#about #skillsCont {
+#aboutPic>img {
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+}
+
+#aboutText>div {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background-color: #594266;
+  margin: 0 auto;
+}
+
+#aboutText>div>p {
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Raleway";
+}
+
+#skillsContainer {
   flex-basis: 100%;
 }
 
-#about div #skills {
+#skills {
   width: 600px;
   height: 300px;
   margin: 0 auto;
@@ -353,6 +286,7 @@ nav div:hover {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  color: white;
 }
 
 #skills #left {
@@ -380,7 +314,6 @@ nav div:hover {
   font-family: "Raleway";
   font-size: 1em;
 }
-
 
 /* ~~~ end of about ~~~ */
 
@@ -459,7 +392,7 @@ nav div:hover {
 
 @keyframes logoAnim {
   100% {
-    transform: scale(0.33) translate(-50%, -50%);
+    transform: scale(0.5) translate(-50%, 50%);
     top: 75px;
   }
 }
@@ -478,34 +411,37 @@ nav div:hover {
   }
 }
 
-@media (max-width: 1650px){
-  @keyframes logoAnim {
-    100% {
-      transform: scale(0.5) translate(-50%, -50%);
-      top: 25%;
-    }
+@media (max-width: 1460px) {
+  #workContainer>div:nth-child(2)>div {
+    flex-basis: 100%;
+    padding: 30px;
+  }
+  #aboutContainer>div:nth-child(2)>div:nth-child(1), #aboutContainer>div:nth-child(2)>div:nth-child(2) {
+    flex-basis: 100%;
+  }
+  #aboutContainer>div:nth-child(2)>div {
+    padding: 30px;
+  }
+  #aboutText>div {
+    width: 600px;
+    height: 300px;
   }
 }
 
-@media (max-width: 1445px) {
-  #workCont {
+@media (max-width: 800px) {
+  #workContainer {
     width: 100%;
   }
-}
-
-@media (max-width: 1248px) {
-  #about #aboutPic {
-    flex-basis: 100%;
-  }
-  #about #aboutPic img {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-  #about #aboutText {
-    flex-basis: 100%;
-  }
-  #about #aboutText p {
+  #aboutContainer {
     width: 100%;
+  }
+  nav>div {
+    flex-basis: 100%;
+  }
+  nav>div>div {
+    width: 157px;
+  }
+  nav>div>div>a {
+    font-size: 1.5em;
   }
 }
