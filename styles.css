@@ -68,7 +68,7 @@ nav>div>div {
   background-size: 100% 0%;
   transition: 0.5s ease;
   background-repeat: no-repeat;
-  width: 125px;
+  width: 160px;
   margin: 0 auto;
 }
 
@@ -79,6 +79,9 @@ nav>div>div>a {
   margin: 0 auto;
   font-family: "Raleway";
   font-size: 1.2em;
+}
+
+nav>div>div>a>p {
   padding: 5px 0;
 }
 
@@ -142,7 +145,6 @@ nav>div>div:hover {
 }
 
 /* Work Title */
-
 #workContainer>div:nth-child(1) {
   flex-basis: 15%;
   display: flex;
@@ -175,8 +177,86 @@ nav>div>div:hover {
   background-size: cover;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
   align-content: space-around;
   opacity: 0;
+  position: relative;
+}
+
+.img-box:hover .black {
+  animation: black-slide .2s forwards ease-out;
+}
+
+.black {
+  position: absolute;
+  min-width: 500px;
+  height: 300px;
+  background-color: black;
+  top: 100%;
+  opacity: .9;
+}
+
+.img-box h2 {
+  color: white;
+  font-size: 2em;
+  flex-basis: 100%;
+  text-align: center;
+  font-family: "Raleway";
+  text-decoration: underline;
+  z-index: 5;
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+.img-box p {
+  text-align: center;
+  color: white;
+  font-family: "Raleway";
+  flex-basis: 70%;
+  z-index: 5;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.img-box a {
+  flex-basis: 50%;
+  text-decoration: none;
+}
+
+.button {
+  color: white;
+  font-family: "Raleway";
+  cursor: pointer;
+  background-size: 100% 0%;
+  transition: background-size 0.5s ease;
+  background-repeat: no-repeat;
+  z-index: 5;
+  max-width: 160px;
+  opacity: 0;
+  transform: translateY(-30px);
+  margin: 0 auto;
+}
+
+.button:hover {
+  background-size: 100% 100%;
+}
+
+.button p {
+  padding: 5px 0;
+  width: 100%;
+}
+
+.img-box:hover h2 {
+  animation: 0.2s 0.3s text-anim forwards ease-out;
+}
+
+.img-box:hover p {
+  animation: 0.2s 0.5s text-anim forwards ease-out;
+}
+
+.img-box:hover .button {
+  animation: 0.2s 0.7s text-anim forwards ease-out;
 }
 
 #Rick {
