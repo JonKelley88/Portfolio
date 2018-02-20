@@ -17,12 +17,13 @@ $(document)
     let counter = 0;
     let images = $(".img-box")
       .toArray();
-    let aboutElements = $("#about>div")
+    let aboutElements = $("#aboutContainer>div")
       .toArray();
     let triggeredOnce = false;
     let skillsHover = false;
     // Functions ------------------
     function galleryAnim() {
+      $("#workContainer>div:nth-child(1)").animate({"opacity": "1"}, 1000);
       $(images)
         .each(function(index) {
           let galleryTimer = index * 250;
@@ -50,7 +51,7 @@ $(document)
 
     function skillsAnim() {
       let skills = $("#skills>#left>div");
-      let skillsCounter = -1;
+      let skillsCounter = 0;
       let skillsTimer = setInterval(function() {
         if (skillsCounter === skills.length - 1) {
           skillsCounter = 0;
@@ -67,7 +68,7 @@ $(document)
         } else {
           skillsCounter = skillsIndex;
         }
-      }, 4000);
+      }, 3500);
     }
 
     function setColors(left, right) {
