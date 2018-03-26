@@ -61,7 +61,7 @@ nav {
 
 nav>div {
   opacity: 0;
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 
 nav>div>div {
@@ -145,6 +145,7 @@ nav>div>div:hover {
 }
 
 /* Work Title */
+
 #workContainer>div:nth-child(1) {
   flex-basis: 15%;
   display: flex;
@@ -157,11 +158,12 @@ nav>div>div:hover {
   flex-basis: 85%;
   display: flex;
   flex-wrap: wrap;
+  min-height: 95vh;
 }
 
 #workContainer>div:nth-child(2)>div {
   flex-basis: 50%;
-  align-self: stretch;
+  align-self: center;
 }
 
 #workContainer>div:nth-child(1)>h3 {
@@ -294,7 +296,7 @@ nav>div>div:hover {
   text-align: center;
 }
 
-#aboutContainer > div {
+#aboutContainer>div {
   opacity: 0;
 }
 
@@ -316,7 +318,8 @@ nav>div>div:hover {
   flex-basis: 85%;
   display: flex;
   flex-wrap: wrap;
-  align-items: space-around;
+  align-items: center;
+  min-height: 90vh;
 }
 
 #aboutContainer>div:nth-child(2)>div:nth-child(1) {
@@ -401,6 +404,65 @@ nav>div>div:hover {
 }
 
 /* ~~~ end of about ~~~ */
+
+/* ~~~ ART ~~~ */
+
+#art {
+  flex-basis: 100vh;
+  background-color: #3b2945;
+}
+
+#artContainer {
+  background-color: #1C1F29;
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#artContainer>div:nth-child(1) {
+  flex-basis: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+#artContainer>div:nth-child(1)>h3 {
+  font-family: "Hind Madurai";
+  color: white;
+  font-size: 3em;
+  width: 300px;
+  padding-top: 30px;
+}
+
+#artContainer>div:nth-child(2) {
+  flex-basis: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#workContainer>div:nth-child(2)>div {
+  flex-basis: 50%;
+}
+
+.artwork {
+  width: 450px;
+  margin: 30px auto;
+  opacity: 0;
+  border: 0;
+  transition: border .1s;
+}
+
+.artwork:hover {
+  border: 10px solid;
+}
+
+/* ~~~ end of ART ~~~ */
 
 /* ~~~ CONTACT ~~~ */
 

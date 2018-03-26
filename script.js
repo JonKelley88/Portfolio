@@ -19,6 +19,7 @@ $(document)
       .toArray();
     let aboutElements = $("#aboutContainer>div")
       .toArray();
+    let artwork = $(".artwork").toArray();
     let triggeredOnce = false;
     let skillsHover = false;
     // Functions ------------------
@@ -36,6 +37,21 @@ $(document)
         });
     }
     // Need constructor function!!
+
+    function artAnim() {
+      $("#artContainer>div:nth-child(1)").animate({"opacity": "1"}, 1000);
+      $(artwork)
+        .each(function(index) {
+          let galleryTimer = index * 250;
+          setTimeout(function() {
+            $(artwork[index])
+              .animate({
+                "opacity": "1"
+              }, 1000);
+          }, galleryTimer);
+        });
+    }
+
     function aboutAnim() {
       $(aboutElements)
         .each(function(index) {
@@ -173,6 +189,20 @@ $(document)
         });
       $("#skills>#left>div")
         .css("background-image", string);
+      $("#art")
+        .css({
+          "border-bottom": "10px solid",
+          "border-image": `${string} 1`
+       });
+       $("#artContainer>div>h3")
+         .css({
+           "border-bottom": "6px solid",
+           "border-image": `${string} 1`
+         });
+         $(".artwork")
+           .css({
+             "border-image": `${string} 1`
+           });
     }, 10); // end of setInterval()
     // jQuery Triggers ------------------
     $("body")
@@ -261,6 +291,9 @@ $(document)
         let aboutTop = $("#about")
           .offset()
           .top;
+        let artTop = $("#art")
+            .offset()
+            .top;
         if (bottom >= workTop + (height / 4)) {
           $("#workTitle>h3")
             .animate({
@@ -269,6 +302,9 @@ $(document)
         }
         if (bottom >= workTop + (height / 2)) {
           galleryAnim();
+        }
+        if (bottom >= artTop + (height / 2)) {
+          artAnim();
         }
         if (bottom >= aboutTop + (height / 3)) {
           if (triggeredOnce === false) {
