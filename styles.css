@@ -196,7 +196,7 @@ nav>div>div:hover {
   height: 300px;
   background-color: black;
   top: 100%;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .img-box h2 {
@@ -225,6 +225,7 @@ nav>div>div:hover {
 .img-box a {
   flex-basis: 50%;
   text-decoration: none;
+  z-index: 20;
 }
 
 .button {
@@ -234,7 +235,7 @@ nav>div>div:hover {
   background-size: 100% 0%;
   transition: background-size 0.5s ease;
   background-repeat: no-repeat;
-  z-index: 10;
+  z-index: 20;
   max-width: 160px;
   opacity: 0;
   transform: translateY(-30px);
@@ -558,6 +559,10 @@ nav>div>div:hover {
   }
 }
 
+/* ~~~  end of ANIMATIONS ~~~ */
+
+/* ~~~  MEDIA QUERIES ~~~ */
+
 @media (max-width: 1460px) {
   #workContainer>div:nth-child(2)>div {
     flex-basis: 100%;
@@ -582,6 +587,9 @@ nav>div>div:hover {
   #aboutContainer {
     width: 100%;
   }
+  #artContainer {
+    width: 100%;
+  }
   nav>div {
     flex-basis: 100%;
   }
@@ -592,3 +600,5 @@ nav>div>div:hover {
     font-size: 1.5em;
   }
 }
+
+/* ~~~  end of MEDIA QUERIES ~~~ */

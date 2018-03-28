@@ -2,7 +2,10 @@ $(document)
   .ready(function() {
     $(document)
       .scrollTop(0);
+
     // Globals ------------------
+
+    // array of the changing gradient colors
     const colors = [
       [55, 64, 250],
       [255, 240, 0],
@@ -22,9 +25,13 @@ $(document)
     let artwork = $(".artwork").toArray();
     let triggeredOnce = false;
     let skillsHover = false;
+
     // Functions ------------------
+
     function galleryAnim() {
-      $("#workContainer>div:nth-child(1)").animate({"opacity": "1"}, 1000);
+      $("#workContainer>div:nth-child(1)").animate({
+        "opacity": "1"
+      }, 1000);
       $(images)
         .each(function(index) {
           let galleryTimer = index * 250;
@@ -39,7 +46,9 @@ $(document)
     // Need constructor function!!
 
     function artAnim() {
-      $("#artContainer>div:nth-child(1)").animate({"opacity": "1"}, 1000);
+      $("#artContainer>div:nth-child(1)").animate({
+        "opacity": "1"
+      }, 1000);
       $(artwork)
         .each(function(index) {
           let galleryTimer = index * 250;
@@ -87,6 +96,7 @@ $(document)
       }, 3500);
     }
 
+    // Calculate the constantly changing gradient RGB values
     function setColors(left, right) {
       let RGBString = $("#logo")
         .css("background-image")
@@ -114,6 +124,8 @@ $(document)
         rightDiff: rightDiff
       };
     } // end of setColors()
+
+    // Sets the color changes to a timer and pushes them to all of the elements that need it
     let timer = setInterval(function() {
       if (counter === 0) {
         setColors(colors[0], colors[1]);
@@ -193,20 +205,23 @@ $(document)
         .css({
           "border-bottom": "10px solid",
           "border-image": `${string} 1`
-       });
-       $("#artContainer>div>h3")
-         .css({
-           "border-bottom": "6px solid",
-           "border-image": `${string} 1`
-         });
-         $(".artwork")
-           .css({
-             "border-image": `${string} 1`
-           });
+        });
+      $("#artContainer>div>h3")
+        .css({
+          "border-bottom": "6px solid",
+          "border-image": `${string} 1`
+        });
+      $(".artwork")
+        .css({
+          "border-image": `${string} 1`
+        });
     }, 10); // end of setInterval()
+
     // jQuery Triggers ------------------
+
     $("body")
       .click(function() {
+        // The initial animations for the home page opening
         $("body")
           .css({
             "cursor": "default",
@@ -225,6 +240,7 @@ $(document)
             .css("animation", "arrow-anim 2s ease infinite");
         }, 3500);
       });
+      // Scroll arrow disappears when the user starts to scroll
     $(window)
       .scroll(function() {
         $("#arrow")
@@ -279,6 +295,7 @@ $(document)
         $("#skills>#left>div")
           .css("background-size", "0% 100%");
       });
+      // Initiate the section animation functions at certain points of scrolling
     $(window)
       .scroll(function() {
         let height = $(window)
@@ -292,8 +309,8 @@ $(document)
           .offset()
           .top;
         let artTop = $("#art")
-            .offset()
-            .top;
+          .offset()
+          .top;
         if (bottom >= workTop + (height / 4)) {
           $("#workTitle>h3")
             .animate({
