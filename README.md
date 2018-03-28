@@ -1,1 +1,3 @@
-# Portfolio
+I use this repository to host my personal portfolio website:
+
+[www.jonkelley.io](www.jonkelley.io)
