@@ -263,6 +263,10 @@ nav>div>div:hover {
   animation: 0.2s 0.7s text-anim forwards ease-out;
 }
 
+#PSB {
+  background-image: url("https://image.ibb.co/iGmG8c/PSB_Viewer.jpg");
+}
+
 #Rick {
   background-image: url("https://image.ibb.co/nmd48x/rickandmorty.jpg");
 }
@@ -273,10 +277,6 @@ nav>div>div:hover {
 
 #Simon {
   background-image: url("https://image.ibb.co/jX8DJx/simon.jpg");
-}
-
-#Pomo {
-  background-image: url("https://image.ibb.co/cNcMox/pomodoro.jpg");
 }
 
 /* ~~~ end of work ~~~ */
@@ -456,10 +456,6 @@ nav>div>div:hover {
   margin: 30px auto;
   opacity: 0;
   border: 0;
-  transition: border .1s;
-}
-
-.artwork:hover {
   border: 10px solid;
 }
 
